@@ -5,6 +5,7 @@ function Profile() {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: "#202324",
+      paddingTop: 30,
       padding: 10,
     },
     imageContainer: {
