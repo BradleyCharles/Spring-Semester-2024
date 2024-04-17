@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "laptop-default",
-    "slug": "laptop-default",
+    "name": "week3",
+    "slug": "week3",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
