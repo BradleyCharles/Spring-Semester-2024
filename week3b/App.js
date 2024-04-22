@@ -1,17 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import RecipeGallery from "./components/RecipeGallery";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Mobile App Development AD340</Text>
-      <StatusBar style="auto" />
+      <RecipeGallery />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 50,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
