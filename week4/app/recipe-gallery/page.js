@@ -1,11 +1,10 @@
-import { StyleSheet, View, Pressable, Text } from "react-native";
-import { Link } from "expo-router";
+import { StyleSheet, View } from "react-native";
+import RecipeGallery from "./components/RecipeGallery";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
-      <Link>World</Link>
+      <RecipeGallery />
     </View>
   );
 }
