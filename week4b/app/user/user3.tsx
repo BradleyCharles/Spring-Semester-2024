@@ -3,40 +3,23 @@ import { Text, View } from "@/components/Themed";
 import { Link } from "expo-router";
 
 export default function Page() {
-  const usernumber = Math.ceil(Math.random() * 3);
-
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Homepage</Text>
+      <Text style={styles.title}>User #3 Profile Page</Text>
+      <Text>This page will return to home using replace</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <Link href="/navigation/about" asChild>
-        <Button title="About Page"></Button>
+      <Link replace href="/navigation/" asChild>
+        <Button title="Home"></Button>
       </Link>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <Link href="/navigation/userprofilepage" asChild>
-        <Button title="Profile"></Button>
-      </Link>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <Link
-        href={{
-          pathname: "./user/[id]",
-          params: { id: `user${usernumber}` },
-        }}
-      >
-        <Button title={`Userpage for user #${usernumber}`}></Button>
-      </Link>
     </View>
   );
 }
