@@ -21,17 +21,9 @@ export default function Page() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <Link href="/navigation/userprofilepage" asChild>
-        <Button title="Profile"></Button>
-      </Link>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
       <Link
         href={{
-          pathname: "./user/[id]",
+          pathname: "/navigation/user/[id]",
           params: { id: `user${usernumber}` },
         }}
       >
