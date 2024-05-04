@@ -1,25 +1,26 @@
-import { Link } from "expo-router";
-import * as WebBrowser from "expo-web-browser";
+import { Text } from "@/components/Themed";
+import * as Linking from "expo-linking";
 import React from "react";
-import { Platform } from "react-native";
+import { TouchableOpacity } from "react-native";
 
-export function ExternalLink(
-  props: Omit<React.ComponentProps<typeof Link>, "href"> & { href: string }
-) {
+const ExternalLink = ({ url, title }) => {
+  const handlePress = async () => {
+    // Check if the device can open the given URL
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      // Open the URL in the device's default browser
+      await Linking.openURL(url);
+    } else {
+      console.log("Don't know how to open URI: " + url);
+    }
+  };
+
   return (
-    <Link
-      target="_blank"
-      {...props}
-      // @ts-expect-error: External URLs are not typed.
-      href={props.href}
-      onPress={(e) => {
-        if (Platform.OS !== "web") {
-          // Prevent the default behavior of linking to the default browser on native.
-          e.preventDefault();
-          // Open the link in an in-app browser.
-          WebBrowser.openBrowserAsync(props.href as string);
-        }
-      }}
-    />
+    <TouchableOpacity onPress={handlePress}>
+      <Text style={{ textDecorationLine: "underline" }}>{title}</Text>
+    </TouchableOpacity>
   );
-}
+};
+
+export default ExternalLink;

@@ -9,7 +9,7 @@ export default function ModalScreen() {
       <Text style={styles.title}>Modal</Text>
       <View
         style={styles.separator}
-        lightColor="#eee"
+        lightColor="#efe"
         darkColor="rgba(255,255,255,0.1)"
       />
       <EditScreenInfo path="app/modal.tsx" />
