@@ -1,8 +1,30 @@
 import React, { useState } from "react";
-import { IncreaseOne, DecreaseOne } from "./Buttons";
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  Button,
+} from "react-native";
 
 export default function RecipeGallery() {
+  const DecreaseOne = ({ handleDecrease }) => {
+    return (
+      <View style={{ marginHorizontal: 10 }}>
+        <Button title="Previous" onPress={handleDecrease} />
+      </View>
+    );
+  };
+
+  const IncreaseOne = ({ handleIncrease }) => {
+    return (
+      <View style={{ marginHorizontal: 10 }}>
+        <Button title="Next" onPress={handleIncrease} />
+      </View>
+    );
+  };
+
   const recipe = [
     {
       id: 1,
