@@ -1,27 +1,21 @@
-import { Button, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
-import { Link } from "expo-router";
 import ButtonComponent from "@/components/ButtonComponent";
 import Seperator from "@/components/seperator";
 
 export default function Page() {
-  const usernumber = Math.ceil(Math.random() * 3);
-
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Homepage</Text>
-      <Seperator />
-      <ButtonComponent href="/navigation/about" title="About Page" />
+      <Text style={styles.title}>Projects</Text>
       <Seperator />
       <ButtonComponent
-        href={
-          {
-            pathname: "/navigation/user/[id]",
-            params: { id: `user${usernumber}` },
-          } as never
-        }
-        title={`Userpage for user #${usernumber}`}
+        href="/portfolio/projects/recipe-gallery/"
+        title="Recipe Gallery"
       />
+      <Seperator />
+      <ButtonComponent href="/portfolio/projects/" title="Coming Soon!" />
+      <Seperator />
+      <ButtonComponent href="/portfolio/projects/" title="Coming Soon!" />
     </View>
   );
 }

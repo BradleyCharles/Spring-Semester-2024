@@ -1,29 +1,25 @@
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
-import ButtonComponent from "@/components/ButtonComponent";
+import { Link } from "expo-router";
 
 export default function Page() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Homepage</Text>
+      <Text style={styles.title}>User Profile Page</Text>
+      <Text>This page will return to home using replace</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <ButtonComponent href="/portfolio/about/" title="About Me" />
+      <Link replace href="/navigation/" asChild>
+        <Button title="Home"></Button>
+      </Link>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <ButtonComponent href="/portfolio/contact/" title="Contact" />
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <ButtonComponent href="/portfolio/projects/" title="Projects" />
     </View>
   );
 }

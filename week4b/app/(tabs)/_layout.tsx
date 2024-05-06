@@ -1,32 +1,22 @@
-import { StatusBar } from "expo-status-bar";
-import { Button, Platform, StyleSheet } from "react-native";
-import EditScreenInfo from "@/components/EditScreenInfo";
+import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
-import { Link } from "expo-router";
+import Seperator from "@/components/seperator";
+import ButtonComponent from "@/components/ButtonComponent";
 
-export default function ModalScreen() {
+export default function page() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Projects</Text>
-
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
+      <Seperator />
+      <ButtonComponent
+        href="/navigation/"
+        title="Implementing Navigation with Expo Router"
       />
-
-      <Link href="/recipe/" asChild>
-        <Button title="Implementing Navigation with Expo Router "></Button>
-      </Link>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
+      <Seperator />
+      <ButtonComponent
+        href="/portfolio/"
+        title="Building Your Personal Portfolio App"
       />
-
-      <Link href="/recipe/" asChild>
-        <Button title="Building Your Personal Portfolio App "></Button>
-      </Link>
     </View>
   );
 }
@@ -44,6 +34,7 @@ const styles = StyleSheet.create({
   separator: {
     marginVertical: 20,
     height: 5,
-    width: "80%",
+    width: "50%",
+    backgroundColor: "#666",
   },
 });
