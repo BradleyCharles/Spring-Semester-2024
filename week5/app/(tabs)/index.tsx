@@ -5,17 +5,11 @@ import { ButtonComponent, Seperator } from "@/components/SmallComponents";
 export default function page() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Projects</Text>
+      <Text style={styles.title}>Assignments</Text>
       <Seperator />
-      <ButtonComponent
-        href="/navigation/"
-        title="Implementing Navigation with Expo Router"
-      />
+      <ButtonComponent href="/tanstack/" title="Tanstack" />
       <Seperator />
-      <ButtonComponent
-        href="/portfolio/"
-        title="Building Your Personal Portfolio App"
-      />
+      <ButtonComponent href="/portfolio/" title="Enhanced Portfoliop" />
     </View>
   );
 }

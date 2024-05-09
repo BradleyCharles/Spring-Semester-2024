@@ -1,9 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { View, Text } from "@/components/Themed";
-import EmailLink from "@/components/Email";
-import ExternalLink from "@/components/ExternalLink";
-import Phone from "@/components/Phone";
+import { EmailLink, Phone, ExternalLink } from "@/components/Links";
 
 export default function Contact() {
   return (

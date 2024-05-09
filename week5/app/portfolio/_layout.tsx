@@ -7,7 +7,6 @@ export default function Layout() {
       <Stack.Screen name="about" options={{ headerShown: false }} />
       <Stack.Screen name="contact" options={{ headerShown: false }} />
       <Stack.Screen name="projects" options={{ headerShown: false }} />
-      <Stack.Screen name="recipe-gallery" options={{ headerShown: false }} />
     </Stack>
   );
 }
