@@ -7,7 +7,12 @@ export default function Button({ label, theme, onPress }) {
       <View
         style={[
           styles.buttonContainer,
-          { borderWidth: 4, borderColor: "#ffd33d", borderRadius: 18 },
+          {
+            borderWidth: 2,
+            borderColor: "#666",
+            borderRadius: 25,
+            marginTop: 5,
+          },
         ]}
       >
         <Pressable
@@ -42,8 +47,8 @@ export default function Button({ label, theme, onPress }) {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 320,
-    height: 68,
+    width: 200,
+    height: 35,
     marginHorizontal: 20,
     alignItems: "center",
     justifyContent: "center",

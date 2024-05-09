@@ -1,14 +1,42 @@
 import { ScrollView, Image, StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
+import * as ImagePicker from "expo-image-picker";
+import Button from "@/components/Button";
+import ImageViewer from "@/components/ImageViewer";
+import { useState } from "react";
+
+const PlaceholderImage = require("@/assets/images/profilepic.jpg");
+
 export default function Profile() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const pickImageAsync = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    } else {
+      alert("You did not select any image.");
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.textLarge}>Brad's Profile</Text>
       <Text style={styles.textLarge}>North Seattle College</Text>
       <View style={styles.imageContainer}>
-        <Image
+        <ImageViewer
           style={styles.image}
-          source={require("../assets/images/profilepic.jpg")}
+          placeholderImageSource={PlaceholderImage}
+          selectedImage={selectedImage}
+        />
+        <Button
+          theme="primary"
+          label="Choose a photo"
+          onPress={pickImageAsync}
         />
       </View>
       <Text style={styles.textLarge}>Professional life</Text>

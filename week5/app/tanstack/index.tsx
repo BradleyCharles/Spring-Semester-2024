@@ -36,7 +36,7 @@ export default function App() {
           label="Choose a photo"
           onPress={pickImageAsync}
         />
-        <Button theme="" label="Use this photo" />
+        <Button theme="" label="Use this photo" onPress="" />
       </View>
       <StatusBar />
     </View>
