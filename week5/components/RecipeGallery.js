@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ScrollView,
-  Button,
-} from "react-native";
+import { Image, ScrollView, Button } from "react-native";
+import { Text, View } from "@/components/Themed";
 
 export default function RecipeGallery() {
   const DecreaseOne = ({ handleDecrease }) => {
