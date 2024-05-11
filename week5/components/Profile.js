@@ -1,4 +1,4 @@
-import { ScrollView, Image, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
 import * as ImagePicker from "expo-image-picker";
 import Button from "@/components/Button";

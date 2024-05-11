@@ -56,6 +56,7 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="portfolio" options={{ headerShown: false }} />
+        <Stack.Screen name="tanstack" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

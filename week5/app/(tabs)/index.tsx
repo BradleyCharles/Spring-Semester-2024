@@ -9,7 +9,7 @@ export default function page() {
       <Seperator />
       <ButtonComponent href="/tanstack/" title="Tanstack" />
       <Seperator />
-      <ButtonComponent href="/portfolio/" title="Enhanced Portfoliop" />
+      <ButtonComponent href="/portfolio/" title="Enhanced Portfolio" />
     </View>
   );
 }
