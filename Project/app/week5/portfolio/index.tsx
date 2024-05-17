@@ -7,11 +7,11 @@ export default function Page() {
     <View style={styles.container}>
       <Text style={styles.title}>Homepage</Text>
       <Separator />
-      <ButtonComponent href="/portfolio/about/" title="About Me" />
+      <ButtonComponent href="/week5/portfolio/about/" title="About Me" />
       <Separator />
-      <ButtonComponent href="/portfolio/contact/" title="Contact" />
+      <ButtonComponent href="/week5/portfolio/contact/" title="Contact" />
       <Separator />
-      <ButtonComponent href="/portfolio/projects/" title="Projects" />
+      <ButtonComponent href="/week5/portfolio/projects/" title="Projects" />
     </View>
   );
 }

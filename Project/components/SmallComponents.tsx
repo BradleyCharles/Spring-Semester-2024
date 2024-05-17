@@ -4,6 +4,8 @@ import { View } from "@/components/Themed";
 import { Link } from "expo-router";
 import { StyleSheet } from "react-native";
 
+const defaultSeparatorSize = 25;
+
 const ButtonComponent = ({ href = "/", title = "" }) => {
   return (
     <View style={{ marginHorizontal: 10 }}>
@@ -14,7 +16,7 @@ const ButtonComponent = ({ href = "/", title = "" }) => {
   );
 };
 
-const Separator = ({ size = 50 }) => {
+const Separator = ({ size = defaultSeparatorSize }) => {
   return (
     <View
       style={[styles.separator, { width: `${size}%` }]}

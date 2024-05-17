@@ -19,19 +19,19 @@ export default function Page(): JSX.Element {
     <View style={styles.container}>
       <Text style={styles.title}>Dog API</Text>
       <Separator />
-      <Link href="/tanstack/breeds/">
+      <Link href="/week5/tanstack/breeds/">
         <ImageBackground source={breedsImage} style={styles.image}>
           <Text style={styles.text}>Breeds!</Text>
         </ImageBackground>
       </Link>
       <Separator />
-      <Link href="/tanstack/facts/">
+      <Link href="/week5/tanstack/facts/">
         <ImageBackground source={factsImage} style={styles.image}>
           <Text style={styles.text}>Facts!</Text>
         </ImageBackground>
       </Link>
       <Separator />
-      <Link href="/tanstack/groups/">
+      <Link href="/week5/tanstack/groups/">
         <ImageBackground source={groupsImage} style={styles.image}>
           <Text style={styles.text}>Groups!</Text>
         </ImageBackground>
