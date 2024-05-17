@@ -1,20 +1,20 @@
 import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
 import ButtonComponent from "@/components/ButtonComponent";
-import Seperator from "@/components/seperator";
+import Separator from "@/components/separator";
 
 export default function Page() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Projects</Text>
-      <Seperator />
+      <Separator />
       <ButtonComponent
         href="/portfolio/projects/recipe-gallery/"
         title="Recipe Gallery"
       />
-      <Seperator />
+      <Separator />
       <ButtonComponent href="/portfolio/projects/" title="Coming Soon!" />
-      <Seperator />
+      <Separator />
       <ButtonComponent href="/portfolio/projects/" title="Coming Soon!" />
     </View>
   );

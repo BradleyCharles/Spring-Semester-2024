@@ -14,7 +14,7 @@ const ButtonComponent = ({ href, title }) => {
   );
 };
 
-const Seperator = () => {
+const Separator = () => {
   return (
     <View
       style={styles.separator}
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { ButtonComponent, Seperator };
+export { ButtonComponent, Separator };

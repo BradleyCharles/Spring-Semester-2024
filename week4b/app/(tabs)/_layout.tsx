@@ -1,18 +1,18 @@
 import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
-import Seperator from "@/components/seperator";
+import Separator from "@/components/separator";
 import ButtonComponent from "@/components/ButtonComponent";
 
 export default function page() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Projects</Text>
-      <Seperator />
+      <Separator />
       <ButtonComponent
         href="/navigation/"
         title="Implementing Navigation with Expo Router"
       />
-      <Seperator />
+      <Separator />
       <ButtonComponent
         href="/portfolio/"
         title="Building Your Personal Portfolio App"

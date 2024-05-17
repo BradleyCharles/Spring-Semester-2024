@@ -2,7 +2,7 @@ import { Button, StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
 import { Link } from "expo-router";
 import ButtonComponent from "@/components/ButtonComponent";
-import Seperator from "@/components/seperator";
+import Separator from "@/components/separator";
 
 export default function Page() {
   const usernumber = Math.ceil(Math.random() * 3);
@@ -10,9 +10,9 @@ export default function Page() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Homepage</Text>
-      <Seperator />
+      <Separator />
       <ButtonComponent href="/navigation/about" title="About Page" />
-      <Seperator />
+      <Separator />
       <ButtonComponent
         href={
           {

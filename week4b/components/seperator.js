@@ -1,7 +1,7 @@
 import { View } from "@/components/Themed";
 import { StyleSheet } from "react-native";
 
-export default Seperator = () => {
+export default Separator = () => {
   return (
     <View
       style={styles.separator}

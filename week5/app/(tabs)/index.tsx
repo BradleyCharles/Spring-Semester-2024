@@ -1,14 +1,14 @@
 import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
-import { ButtonComponent, Seperator } from "@/components/SmallComponents";
+import { ButtonComponent, Separator } from "@/components/SmallComponents";
 
 export default function page() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Assignments</Text>
-      <Seperator />
+      <Separator />
       <ButtonComponent href="/tanstack/" title="Tanstack" />
-      <Seperator />
+      <Separator />
       <ButtonComponent href="/portfolio/" title="Enhanced Portfolio" />
     </View>
   );
