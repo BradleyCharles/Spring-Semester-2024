@@ -33,11 +33,7 @@ export default function Profile() {
           placeholderImageSource={PlaceholderImage}
           selectedImage={selectedImage}
         />
-        <Button
-          theme="primary"
-          label="Choose a photo"
-          onPress={pickImageAsync}
-        />
+        <Button label="Choose a photo" onPress={pickImageAsync} />
       </View>
       <Text style={styles.textLarge}>Professional life</Text>
       <Text style={styles.text}>
@@ -91,8 +87,6 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container: {
-    /* backgroundColor: "#202324", */
-
     padding: 10,
   },
   imageContainer: {
@@ -108,11 +102,9 @@ const styles = StyleSheet.create({
   },
   text: {
     marginVertical: 10,
-    /* color: "rgb(189, 183, 174)", */
   },
   textLarge: {
     fontSize: 18,
     marginVertical: 10,
-    /* color: "rgb(249, 243, 234)", */
   },
 });

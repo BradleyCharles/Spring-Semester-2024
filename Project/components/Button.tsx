@@ -2,11 +2,13 @@ import { StyleSheet, Pressable } from "react-native";
 import { View, Text } from "@/components/Themed";
 import { Link } from "expo-router";
 
-export default function Button({
-  href = null,
-  label = "",
-  onPress = () => null,
-}) {
+interface buttonProps {
+  href?: string;
+  label?: string;
+  onPress?: any;
+}
+
+export default function Button({ href = "", label, onPress }: buttonProps) {
   return (
     <View style={styles.buttonContainer}>
       <Link href={href} asChild>

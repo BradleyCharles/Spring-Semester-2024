@@ -57,21 +57,18 @@ export default function Generic(): JSX.Element {
           </Text>
           <Separator />
           <Button
-            theme=""
             label='Generic Identity Function "Hello BC"'
             onPress={() => setIdentifyString(identity<string>("Hello BC")())}
           />
           <Text style={styles.text}>{identifyString}</Text>
           <Separator size={10} />
           <Button
-            theme=""
             label='Generic Identity Function "42"'
             onPress={() => setIdentifyNumber(identity<number>(42)())}
           />
           <Text style={styles.text}>{identifyNumber}</Text>
           <Separator size={10} />
           <Button
-            theme=""
             label='Generic Generic Array Reversal Function "42, 41, 40"'
             onPress={() => setReverseArray(reverse<number>([42, 41, 40])())}
           />
@@ -80,7 +77,6 @@ export default function Generic(): JSX.Element {
           )}
           <Separator size={10} />
           <Button
-            theme=""
             label='Generic Object Mapper Function "a: 1, b: 2"'
             onPress={() =>
               setObjectMapper(
@@ -96,7 +92,6 @@ export default function Generic(): JSX.Element {
           </Text>
           <Separator size={10} />
           <Button
-            theme=""
             label='Generic Filtering Function "1, 2, 3, 4"'
             onPress={() => setFilterState(filterArray([1, 2, 3, 4]))}
           />
