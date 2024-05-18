@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
+import { ScrollView, StatusBar, StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
 import { Separator } from "@/components/SmallComponents";
 import React, { useState } from "react";
 import Button from "@/components/Button";
 
-export default function Page(): JSX.Element {
+export default function Generic(): JSX.Element {
   const identity =
     <T,>(x: T) =>
     () =>
@@ -29,10 +29,14 @@ export default function Page(): JSX.Element {
     return mappedObject;
   }
 
-  const filterArray =
-    <T,>(x: T) =>
-    () =>
-      x;
+  function filterArray<Type>(arg: Type[]) {
+    function x(arg: any) {
+      return arg % 2 === 0;
+    }
+
+    const result = arg.filter(x);
+    return result;
+  }
 
   const [identifyString, setIdentifyString] = useState<string | null>(null);
   const [identifyNumber, setIdentifyNumber] = useState<number | null>(null);
@@ -41,62 +45,78 @@ export default function Page(): JSX.Element {
     string,
     string | null
   > | null>(null);
-  const [filterState, setFilterState] = useState<string | null>(null);
+  const [filterState, setFilterState] = useState<number[] | null>(null);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        Building a Generic Utility Library in TypeScript
-      </Text>
-      <Separator />
-      <Button
-        theme=""
-        label='Generic Identity Function "Hello BC"'
-        onPress={() => setIdentifyString(identity<string>("Hello BC")())}
-      />
-      <Text style={styles.text}>{identifyString}</Text>
-      <Separator size={10} />
-      <Button
-        theme=""
-        label='Generic Identity Function "42"'
-        onPress={() => setIdentifyNumber(identity<number>(42)())}
-      />
-      <Text style={styles.text}>{identifyNumber}</Text>
-      <Separator size={10} />
-      <Button
-        theme=""
-        label='Generic Generic Array Reversal Function "42, 41, 40"'
-        onPress={() => setReverseArray(reverse<number>([42, 41, 40])())}
-      />
-      {reverseArray !== null && (
-        <Text style={styles.text}>{reverseArray.join(", ")}</Text>
-      )}
-      <Separator size={10} />
-      <Button
-        theme=""
-        label='Generic Object Mapper Function "a: 1, b: 2"'
-        onPress={() =>
-          setObjectMapper(mapper({ a: 1, b: 2 }, (value) => value.toString()))
-        }
-      />
-      <Text style={styles.text}>
-        {objectMapper &&
-          Object.entries(objectMapper)
-            .map(([key, value]) => `${key}: "${value}"`)
-            .join(", ")}
-      </Text>
-      <Separator size={10} />
-      <Button
-        theme=""
-        label='Generic Filtering Function "1, 2, 3, 4"'
-        onPress={() => setFilterState(identity<string>("Hello BC")())}
-      />
-      <Text style={styles.text}>{filterState}</Text>
+    <View style={styles.statusBar}>
+      <StatusBar />
+      <ScrollView style={styles.scroll}>
+        <View style={styles.container}>
+          <Text style={styles.title}>
+            Building a Generic Utility Library in TypeScript
+          </Text>
+          <Separator />
+          <Button
+            theme=""
+            label='Generic Identity Function "Hello BC"'
+            onPress={() => setIdentifyString(identity<string>("Hello BC")())}
+          />
+          <Text style={styles.text}>{identifyString}</Text>
+          <Separator size={10} />
+          <Button
+            theme=""
+            label='Generic Identity Function "42"'
+            onPress={() => setIdentifyNumber(identity<number>(42)())}
+          />
+          <Text style={styles.text}>{identifyNumber}</Text>
+          <Separator size={10} />
+          <Button
+            theme=""
+            label='Generic Generic Array Reversal Function "42, 41, 40"'
+            onPress={() => setReverseArray(reverse<number>([42, 41, 40])())}
+          />
+          {reverseArray !== null && (
+            <Text style={styles.text}>{reverseArray.join(", ")}</Text>
+          )}
+          <Separator size={10} />
+          <Button
+            theme=""
+            label='Generic Object Mapper Function "a: 1, b: 2"'
+            onPress={() =>
+              setObjectMapper(
+                mapper({ a: 1, b: 2 }, (value) => value.toString())
+              )
+            }
+          />
+          <Text style={styles.text}>
+            {objectMapper &&
+              Object.entries(objectMapper)
+                .map(([key, value]) => `${key}: "${value}"`)
+                .join(", ")}
+          </Text>
+          <Separator size={10} />
+          <Button
+            theme=""
+            label='Generic Filtering Function "1, 2, 3, 4"'
+            onPress={() => setFilterState(filterArray([1, 2, 3, 4]))}
+          />
+          {filterState !== null && (
+            <Text style={styles.text}>{filterState.join(", ")}</Text>
+          )}
+        </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  statusBar: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
+  scroll: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: "center",

@@ -9,6 +9,7 @@ export default function Button({ label, theme, onPress }) {
         style={[
           styles.buttonContainer,
           {
+            height: 35,
             width: 200,
             borderWidth: 2,
             borderColor: "#666",
@@ -39,6 +40,7 @@ export default function Button({ label, theme, onPress }) {
         style={[
           styles.buttonContainer,
           {
+            height: 50,
             width: "auto",
             borderWidth: 2,
             borderColor: "#666",
@@ -61,7 +63,6 @@ export default function Button({ label, theme, onPress }) {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    height: 35,
     marginHorizontal: 20,
     alignItems: "center",
     justifyContent: "center",

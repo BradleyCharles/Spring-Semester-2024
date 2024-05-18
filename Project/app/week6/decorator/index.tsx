@@ -1,21 +1,34 @@
-import { StyleSheet } from "react-native";
+import { ScrollView, StatusBar, StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
-import { ButtonComponent, Separator } from "@/components/SmallComponents";
+import { Separator } from "@/components/SmallComponents";
+import React, { useState } from "react";
+import Button from "@/components/Button";
 
-export default function Page() {
+export default function Generic(): JSX.Element {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Homepage</Text>
-      <Separator />
-      <ButtonComponent href="/week5/portfolio/about/" title="About Me" />
-      <Separator />
-      <ButtonComponent href="/week5/portfolio/contact/" title="Contact" />
-      <Separator />
-      <ButtonComponent href="/week5/portfolio/projects/" title="Projects" />
+    <View style={styles.statusBar}>
+      <StatusBar />
+      <ScrollView style={styles.scroll}>
+        <View style={styles.container}>
+          <Text style={styles.title}>
+            Building a Generic Utility Library in TypeScript
+          </Text>
+          <Separator />
+          <Button theme="" label="button" onPress={() => null} />
+        </View>
+      </ScrollView>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
+  statusBar: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
+  scroll: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: "center",
@@ -25,9 +38,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
   },
-  separator: {
-    marginVertical: 20,
-    height: 5,
-    width: "50%",
+  text: {
+    marginTop: 3,
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
