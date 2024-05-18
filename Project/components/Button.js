@@ -9,6 +9,7 @@ export default function Button({ label, theme, onPress }) {
         style={[
           styles.buttonContainer,
           {
+            width: 200,
             borderWidth: 2,
             borderColor: "#666",
             borderRadius: 25,
@@ -32,23 +33,34 @@ export default function Button({ label, theme, onPress }) {
         </Pressable>
       </View>
     );
-  }
-
-  return (
-    <View style={styles.buttonContainer}>
-      <Pressable
-        style={styles.button}
-        onPress={() => alert("You pressed a button.")}
+  } else
+    return (
+      <View
+        style={[
+          styles.buttonContainer,
+          {
+            width: "auto",
+            borderWidth: 2,
+            borderColor: "#666",
+            borderRadius: 10,
+            marginTop: 5,
+          },
+        ]}
       >
-        <Text style={styles.buttonLabel}>{label}</Text>
-      </Pressable>
-    </View>
-  );
+        <Pressable
+          style={[styles.button, { backgroundColor: "#fff" }]}
+          onPress={onPress}
+        >
+          <Text style={[styles.buttonLabel, { color: "#25292e" }]}>
+            {label}
+          </Text>
+        </Pressable>
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 200,
     height: 35,
     marginHorizontal: 20,
     alignItems: "center",
