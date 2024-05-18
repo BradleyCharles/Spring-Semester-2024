@@ -11,29 +11,35 @@ export default function page() {
         <View style={styles.container}>
           <Text style={styles.label}>AD 340</Text>
           <Separator />
-          <Text style={styles.label}>Week 5</Text>
+          <Text style={styles.label}>Week 5 Assignments</Text>
           <Separator size={smallSeperator} />
           <Button
             href="/week5/tanstack/"
-            label="Assignment: Fetching Dog Data with TanStack Query "
+            label="Fetching Dog Data with TanStack Query "
           />
           <Separator size={smallSeperator} />
           <Button
             href="/week5/portfolio/"
-            label="Assignment: Extend Personal Portfolio App with Expo Image Picker "
+            label="Extend Personal Portfolio App with Expo Image Picker "
           />
           <Separator size={smallSeperator} />
-          <Text style={styles.label}>Week 6</Text>
+          <Text style={styles.label}>Week 6 Assignments</Text>
           <Separator size={smallSeperator} />
           <Button
             href="/week6/generic"
-            label="Assignment: Building a Generic Utility Library in TypeScript"
+            label="Building a Generic Utility Library in TypeScript"
           />
           <Separator size={smallSeperator} />
           <Button
             href="/week6/decorator"
-            label="Assignment: Exploring Decorators in TypeScript "
+            label="Exploring Decorators in TypeScript "
           />
+          <Separator size={smallSeperator} />
+          <Text style={styles.label}>Week 7 Assignments</Text>
+          <Separator size={smallSeperator} />
+          <Button href="/week7/" label=" 1 " />
+          <Separator size={smallSeperator} />
+          <Button href="/week7/" label=" 2 " />
         </View>
       </ScrollView>
     </View>
