@@ -4,13 +4,42 @@ import { Separator } from "@/components/SmallComponents";
 import React, { useState } from "react";
 import Button from "@/components/Button";
 
-export default function Generic(): JSX.Element {
+export default function Decorator(): JSX.Element {
+  function SimpleLogger<T extends { new (...args: any[]): {} }>(
+    constructor: T
+  ) {
+    return class extends constructor {
+      constructor(...args: any[]) {
+        super(...args);
+        console.log(
+          `An instance of ${constructor.name} was created with arguments:`,
+          args
+        );
+      }
+    };
+  }
+
+  @SimpleLogger
+  class MyTestClass {
+    month: string;
+    day: number;
+    year: number;
+
+    constructor(m: string, t: number, y: number) {
+      this.month = m;
+      this.day = t;
+      this.year = y;
+    }
+  }
+
+  const testInstance = new MyTestClass("June", 14, 2024);
+
   return (
     <View style={styles.statusBar}>
       <StatusBar />
       <ScrollView style={styles.scroll}>
         <View style={styles.container}>
-          <Text style={styles.title}>Exploring Decorators in TypeScript </Text>
+          <Text style={styles.day}>Exploring Decorators in TypeScript </Text>
           <Separator />
           <Button label="button" onPress={() => null} />
         </View>
@@ -32,7 +61,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  title: {
+  day: {
     fontSize: 30,
     fontWeight: "bold",
   },
