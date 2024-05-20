@@ -3,7 +3,12 @@ import * as Linking from "expo-linking";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
-const ExternalLink = ({ url, title }) => {
+interface linkInfo {
+  url: string;
+  title: string;
+}
+
+const ExternalLink = ({ url, title }: linkInfo) => {
   const handlePress = async () => {
     // Check if the device can open the given URL
     const supported = await Linking.canOpenURL(url);
