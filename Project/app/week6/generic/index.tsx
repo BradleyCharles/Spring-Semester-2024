@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 3,
-    color: "white",
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",

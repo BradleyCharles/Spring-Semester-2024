@@ -1,24 +1,31 @@
 import { StyleSheet, Pressable } from "react-native";
 import { View, Text } from "@/components/Themed";
 import { Link } from "expo-router";
+import React from "react";
 
-interface buttonProps {
+interface ButtonProps {
   href?: string;
-  label?: string;
-  onPress?: any;
+  label: string;
+  onPress?: () => void;
 }
 
-export default function Button({ href = "", label, onPress }: buttonProps) {
+const Button: React.FC<ButtonProps> = ({ href = "", label, onPress }) => {
   return (
     <View style={styles.buttonContainer}>
-      <Link href={href} asChild>
+      {href ? (
+        <Link href={href} style={styles.button}>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonLabel}>{label}</Text>
+          </Pressable>
+        </Link>
+      ) : (
         <Pressable style={styles.button} onPress={onPress}>
           <Text style={styles.buttonLabel}>{label}</Text>
         </Pressable>
-      </Link>
+      )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -46,3 +53,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+export default Button;
