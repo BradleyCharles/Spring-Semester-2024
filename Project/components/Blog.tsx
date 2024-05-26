@@ -17,7 +17,7 @@ export default function Tanstack() {
   const { isLoading, isError, isSuccess, data } = useQuery({
     queryKey: ["todo"],
     queryFn: () =>
-      fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
+      fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
         res.json()
       ),
   });
@@ -38,12 +38,33 @@ export default function Tanstack() {
           <Text>{breed.attributes.description}</Text>
         </View> */}
         <View>
-          {data.map((todo: { id: string; title: string }) => (
-            <View>
-              <Text>{todo.id}</Text>
-              <Text>Title: {todo.title}</Text>
-            </View>
-          ))}
+          <Text style={styles.title}>Blogland</Text>
+        </View>
+        <View>
+          {data.map(
+            (todo: {
+              userId: number;
+              id: number;
+              title: string;
+              body: string;
+            }) => (
+              <View>
+                <Text>
+                  {"USER ID -->"} {todo.userId}
+                </Text>
+                <Text>
+                  {"ID -->"} {todo.id}
+                </Text>
+                <Text>
+                  {"TITLE ---->"} {todo.title}
+                </Text>
+                <Text>
+                  {"BODY -->"} {todo.body}
+                </Text>
+                <Separator />
+              </View>
+            )
+          )}
         </View>
       </ScrollView>
     );
@@ -55,6 +76,11 @@ const styles = StyleSheet.create({
   scroll: {
     margin: 10,
     flex: 1,
+  },
+  title: {
+    marginVertical: 30,
+    fontSize: 32,
+    fontFamily: "Kailasa-Bold",
   },
   content: {
     fontSize: 14,

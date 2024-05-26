@@ -36,11 +36,7 @@ export default function page() {
           />
           <Separator size={smallSeperator} />
           <Text style={styles.label}>Week 7 Assignments</Text>
-          <Separator size={smallSeperator} />
-          <Button
-            href="/week7/"
-            label="Building and Exploring Controllers in NestJS"
-          />
+
           <Separator size={smallSeperator} />
           <Button
             href="/week7/"
