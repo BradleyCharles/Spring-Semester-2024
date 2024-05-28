@@ -1,23 +1,25 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  UseMutationResult,
+  useMutation,
+  useQuery,
+} from "@tanstack/react-query";
 import { Button, Separator } from "@/components/SmallComponents";
 import { Text, View } from "@/components/Themed";
 import { ScrollView, StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
 import axios from "axios";
 
-interface Todo {
-  id: string;
-  title: string;
-  body: string;
-}
-
 interface NewPost {
-  title: string;
-  body: string;
+  id?: number;
+  title?: string;
+  body?: string;
+}
+interface UpdatePostFormProps {
+  postId: number;
 }
 
-export default function Tanstack() {
-  const { isLoading, isError, isSuccess, data } = useQuery<Todo[]>({
+export default function TanstackQuery() {
+  const { isLoading, isError, isSuccess, data } = useQuery<NewPost[]>({
     queryKey: ["todo"],
     queryFn: () =>
       fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
@@ -33,9 +35,33 @@ export default function Tanstack() {
       }).then((res) => res.json()),
   });
 
+  const updatePost = async ({ id, title, body }: NewPost): Promise<NewPost> => {
+    const response = await axios.put<NewPost>(
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      { title, body }
+    );
+    return response.data;
+  };
+
+  const patchPost = async ({ id, title, body }: NewPost): Promise<NewPost> => {
+    const response = await axios.patch<NewPost>(
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      { title, body }
+    );
+    return response.data;
+  };
+
+  const deletePost = async ({ id }: NewPost): Promise<NewPost> => {
+    const response = await axios.delete<NewPost>(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+    return response.data;
+  };
+
   const [task, setTask] = useState(0);
+  const [id, setId] = useState(1);
   const [title, setTitle] = useState("");
-  const [blog, setBlog] = useState("");
+  const [body, setBody] = useState("");
 
   const handleMutation = (newPost: NewPost) => {
     mutate(newPost);
@@ -90,31 +116,160 @@ export default function Tanstack() {
               <Text style={styles.small}>Title:</Text>
               <TextInput
                 style={styles.input}
+                placeholder="Enter a title"
                 value={title}
                 onChangeText={setTitle}
               />
               <Text style={styles.small}>Body:</Text>
               <TextInput
                 style={styles.input}
-                value={blog}
-                onChangeText={setBlog}
+                placeholder="Enter a message"
+                value={body}
+                onChangeText={setBody}
               />
             </View>
             <Button
               label="Submit"
-              onPress={() => handleMutation({ title: title, body: blog })}
+              onPress={() => handleMutation({ title: title, body: body })}
             />
           </ScrollView>
         );
       }
       break;
     case 3:
+      if (isLoading) return <Text>Loading...</Text>;
+
+      if (isError) return <Text>Oof.. An error has occurred!</Text>;
+
+      if (isSuccess) {
+        return (
+          <ScrollView style={styles.scroll}>
+            <View style={styles.title}>
+              <Text style={styles.title}>Blogland</Text>
+              <Button label="Go Back!" onPress={() => setTask(0)} />
+            </View>
+            <View>
+              <Text style={styles.small}>Title:</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter a title"
+                value={title}
+                onChangeText={setTitle}
+              />
+              <Text style={styles.small}>Body:</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter a message"
+                value={body}
+                onChangeText={setBody}
+              />
+            </View>
+            <Button
+              label="Submit"
+              onPress={() => updatePost({ id: 1, title: title, body: body })}
+            />
+          </ScrollView>
+        );
+      }
       break;
     case 4:
+      if (isLoading) return <Text>Loading...</Text>;
+
+      if (isError) return <Text>Oof.. An error has occurred!</Text>;
+
+      if (isSuccess) {
+        return (
+          <ScrollView style={styles.scroll}>
+            <View style={styles.title}>
+              <Text style={styles.title}>Blogland</Text>
+              <Button label="Go Back!" onPress={() => setTask(0)} />
+            </View>
+            <View>
+              <Text style={styles.small}>Title:</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter a title"
+                value={title}
+                onChangeText={setTitle}
+              />
+            </View>
+            <Button
+              label="Submit"
+              onPress={() => patchPost({ id: 1, title: title })}
+            />
+          </ScrollView>
+        );
+      }
       break;
     case 5:
+      if (isLoading) return <Text>Loading...</Text>;
+
+      if (isError) return <Text>Oof.. An error has occurred!</Text>;
+
+      if (isSuccess) {
+        const filteredData = data.filter((todo) => todo.id === id);
+        return (
+          <ScrollView style={styles.scroll}>
+            <View style={styles.title}>
+              <Text style={styles.title}>Blogland</Text>
+              <Button label="Go Back!" onPress={() => setTask(0)} />
+            </View>
+            <View>
+              {filteredData.map((todo) => (
+                <View key={todo.id}>
+                  <Text>
+                    {"ID -->"} {todo.id}
+                  </Text>
+                  <Text>
+                    {"TITLE ---->"} {todo.title}
+                  </Text>
+                  <Text>
+                    {"BODY -->"} {todo.body}
+                  </Text>
+                </View>
+              ))}
+            </View>
+            <Button label="Delete post" onPress={() => deletePost({ id: 1 })} />
+          </ScrollView>
+        );
+      }
       break;
     case 6:
+      if (isLoading) return <Text>Loading...</Text>;
+
+      if (isError) return <Text>Oof.. An error has occurred!</Text>;
+
+      if (isSuccess) {
+        const filteredData = data.filter((todo) => todo.id === id);
+        return (
+          <ScrollView style={styles.scroll}>
+            <View style={styles.title}>
+              <Text style={styles.title}>Blogland</Text>
+              <Button label="Go Back!" onPress={() => setTask(0)} />
+            </View>
+            <View>
+              {filteredData.map((todo) => (
+                <View key={todo.id}>
+                  <Text>
+                    {"ID -->"} {todo.id}
+                  </Text>
+                  <Text>
+                    {"TITLE ---->"} {todo.title}
+                  </Text>
+                  <Text>
+                    {"BODY -->"} {todo.body}
+                  </Text>
+                </View>
+              ))}
+            </View>
+            <Button label="View post 1" onPress={() => setId(1)} />
+            <Button label="View post 2" onPress={() => setId(2)} />
+            <Button label="View post 3" onPress={() => setId(3)} />
+            <Button label="View post 4" onPress={() => setId(4)} />
+            <Button label="View post 5" onPress={() => setId(5)} />
+          </ScrollView>
+        );
+      }
       break;
 
     default:
@@ -178,10 +333,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: -10,
     marginBottom: 10,
-    paddingLeft: 5,
+    paddingHorizontal: 5,
   },
   nav: {
     flex: 1,
     justifyContent: "flex-end",
+  },
+  container: {
+    padding: 20,
   },
 });
