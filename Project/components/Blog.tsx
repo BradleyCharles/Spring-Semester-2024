@@ -1,8 +1,4 @@
-import {
-  UseMutationResult,
-  useMutation,
-  useQuery,
-} from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { Button, Separator } from "@/components/SmallComponents";
 import { Text, View } from "@/components/Themed";
 import { ScrollView, StyleSheet, TextInput } from "react-native";
