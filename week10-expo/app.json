@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "week10-expo",
-    "slug": "week10-expo",
+    "name": "AD340 Mobile Project",
+    "slug": "AD340_Mobile_Project",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#666"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {

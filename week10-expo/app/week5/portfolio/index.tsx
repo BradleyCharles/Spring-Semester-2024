@@ -1,17 +1,17 @@
 import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
-import { ButtonComponent, Separator } from "@/components/SmallComponents";
+import { Button, Separator } from "@/components/SmallComponents";
 
 export default function Page() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Homepage</Text>
+      <Text style={styles.label}>Homepage</Text>
       <Separator />
-      <ButtonComponent href="/portfolio/about/" title="About Me" />
+      <Button href="/week5/portfolio/about/" label="About Me" />
       <Separator />
-      <ButtonComponent href="/portfolio/contact/" title="Contact" />
+      <Button href="/week5/portfolio/contact/" label="Contact" />
       <Separator />
-      <ButtonComponent href="/portfolio/projects/" title="Projects" />
+      <Button href="/week5/portfolio/projects/" label="Projects" />
     </View>
   );
 }
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  title: {
+  label: {
     fontSize: 30,
     fontWeight: "bold",
   },

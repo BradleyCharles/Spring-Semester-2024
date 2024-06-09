@@ -15,6 +15,6 @@ const IncreaseOne = ({ handleIncrease }) => {
       <Button title="Next" onPress={handleIncrease} />
     </View>
   );
-};
+}; /*  */
 
 export { IncreaseOne, DecreaseOne };
