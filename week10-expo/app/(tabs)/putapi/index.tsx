@@ -1,13 +1,20 @@
-import Profile from "@/components/Profile";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Putapi from "./putapi";
 import { View } from "@/components/Themed";
 import { StyleSheet, StatusBar } from "react-native";
+import Navigation from "@/components/navigation";
+
+const queryClient = new QueryClient();
 
 export default function App() {
   return (
     <View style={styles.statusBar}>
       <StatusBar />
       <View style={styles.container}>
-        <Profile />
+        <Navigation />
+        <QueryClientProvider client={queryClient}>
+          <Putapi />
+        </QueryClientProvider>
       </View>
     </View>
   );
@@ -20,5 +27,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1, // Take up all available space
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

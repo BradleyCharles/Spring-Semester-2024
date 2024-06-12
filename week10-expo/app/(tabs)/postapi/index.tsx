@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Breeds from "@/components/Breeds";
+import Postapi from "./postapi";
 import { View } from "@/components/Themed";
 import { StyleSheet, StatusBar } from "react-native";
+import Navigation from "@/components/navigation";
 
 const queryClient = new QueryClient();
 
@@ -10,8 +11,9 @@ export default function App() {
     <View style={styles.statusBar}>
       <StatusBar />
       <View style={styles.container}>
+        <Navigation />
         <QueryClientProvider client={queryClient}>
-          <Breeds />
+          <Postapi />
         </QueryClientProvider>
       </View>
     </View>

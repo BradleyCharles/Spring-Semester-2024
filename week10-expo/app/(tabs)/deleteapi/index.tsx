@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Facts from "@/components/Facts";
+import Deleteapi from "./deleteapi";
 import { View } from "@/components/Themed";
-import { StyleSheet, StatusBar, ScrollView } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
+import Navigation from "@/components/navigation";
 
 const queryClient = new QueryClient();
 
@@ -9,9 +10,10 @@ export default function App() {
   return (
     <View style={styles.statusBar}>
       <StatusBar />
+      <Navigation />
       <View style={styles.container}>
         <QueryClientProvider client={queryClient}>
-          <Facts />
+          <Deleteapi />
         </QueryClientProvider>
       </View>
     </View>

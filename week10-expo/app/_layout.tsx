@@ -55,9 +55,6 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="week5" options={{ headerShown: false }} />
-        <Stack.Screen name="week6" options={{ headerShown: false }} />
-        <Stack.Screen name="week7" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
